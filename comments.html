@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<header>
+<meta charset="utf-8">
+<title>Ano - Game of Thrones</title>
+<base href="">
+<style>
+/* Global */
+    span {
+        font-family: Helvetica;
+        color: #3f4549;
+    }
+    a {
+        text-decoration: none;
+        font-family: Helvetica;        
+        color: #1984bb;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    span.username {
+        margin-left: 3px;
+        font-size: 13px;
+        font-weight: bold;
+        color: #a6b4bb;
+    }
+    a.name {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 15px;
+        color: #3f4549;    
+    }
+    a.name:hover {
+        text-decoration: none;
+        color: #1984bb;
+
+    }
+/* Comments */
+    div.comments-box {
+        width: 60%;
+        min-width: 500px;
+        margin: 0 auto;
+        padding-left: 5%;
+        padding-top: 70px;
+        padding-right: 25%;
+    }
+/* Comments Form */
+    div.comment-post {
+        margin-left: 112px;
+    }
+    img.comment-form-userpic {
+        float: left;
+        width: 100px; 
+        height: 100px;        
+    }
+    div.comment-textarea {
+        margin-top: 5px;
+    }
+    img.comment-form-settings {
+        float: right;
+    }
+    textarea.comments-textarea {
+        width: 100%;
+        height: 68px;
+        float:left;
+        margin-top: 5px;
+        padding: 10px;
+        box-sizing: border-box;
+        border-width: 2px;
+        border-radius: 5px;        
+        border-color: #ccd3d7;
+        color: #3f4549;
+        font-size: 15px;
+        -webkit-transition-property: height!important;    
+    }
+    textarea.comments-textarea::-webkit-input-placeholder {
+        font-size: 15px;
+        color:#a6b4bb;        
+    }
+    button.comment-form-button {
+        width: 70px;
+        height: 25px;
+        float:right;
+        margin-top: 7px;
+        background-color: #e5e6e7;
+        border-width: 2px;
+        border-color: #ccd3d7;
+        border-style: solid;
+        border-radius: 5px;
+        font-size: 13px;
+        color: #80939d;
+        font-weight: bold;
+    }
+/* Comments List */    
+    div.comments-list {
+        margin-left: 40px;        
+        margin-top: 130px; 
+    }
+    div.tread {
+        margin-top: 35px;
+    }
+    div.tread-2-level {
+        margin-left: 40px; 
+        margin-top: 20px;
+    }
+    div.comment-elements {
+        margin-left: 72px;
+    }
+    div.comment-text {
+        margin-top: 5px;
+    }
+    div.comment-elements-2 {
+        margin-top: 3px;
+    }
+    img.userpic {
+        float: left;
+        width: 60px; 
+        height: 60px;
+    }
+    span.time {
+        margin-left: 10px;
+        font-size: 12px; 
+        color: #a6b4bb;
+    }
+    span.comment-text {
+        font-size: 15px;
+    }
+    a.answer {
+        font-size: 13px;
+        color: #a6b4bb;
+        text-decoration: none;
+    }
+    a.answer:hover {
+        text-decoration: none;  
+        color: #1984bb; 
+    }
+</style>
+</header>
+<body>
+<div class="comments-box">
+    <div class="comment-form">
+        <div>
+            <img src="./pics/userpic1.png" class="comment-form-userpic">
+        </div>
+        <div class="comment-post">
+            <div>
+                <a href="#" class="name">Daenerys Targaryen<span class="username">@targaryen</span></a>
+                <img src="./pics/settings.png" width="30" height="20" class="comment-form-settings">
+            </div>
+            <div class="comment-textarea">
+                <textarea class="comments-textarea" name="text" placeholder="Type your comment here..."></textarea>
+            </div>
+            <div>
+                <button Type="submit" class="comment-form-button">Post</button>
+            </div>
+        </div>
+    </div>
+    <div class="comments-list">
+        <div class="tread">
+            <div class="tread-1-level">
+                <div>
+                    <img src="./pics/userpic2.png" class="userpic">
+                </div>
+                <div class="comment-elements">
+                    <div class="comment-elements-1">
+                        <a href="#" class="name">King Jofry<span class="username">@jofry</span></a>
+                        <span class="time">1 hour ago</span>
+                    </div>
+                    <div class="comment-text">
+                        <span class="comment-text">Я король! Всех наказать!!!</span>
+                    </div>
+                    <div class="comment-elements-2">
+                        <a href="#" class="answer">Ответить</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tread-2-level">
+                <div>
+                    <img src="./pics/userpic3.png" class="userpic">
+                </div>
+                <div class="comment-elements">
+                    <div class="comment-elements-1">
+                        <a href="#" class="name">Ned Stark<span class="username">@nstark</span></a>
+                        <span class="time">1 hour ago</span>
+                    </div>
+                    <div class="comment-text">
+                        <span class="comment-text">В следующей серии ты умрешь. Я уже посмотрел. Мы здесь тебя уже ждем.</span>
+                    </div>
+                    <div class="comment-elements-2">
+                        <a href="#" class="answer">Ответить</a>
+                    </div>
+                </div>
+            </div>            
+        </div>
+        <div class="tread">
+            <div class="tread-1-level">
+                <div>
+                    <img src="./pics/userpic4.png" class="userpic">
+                </div>
+                <div class="comment-elements">
+                    <div class="comment-elements-1">
+                        <a href="#" class="name">Yarl Ragnar<span class="username">@ragnar</span></a>
+                        <span class="time">15 min ago</span>
+                    </div>
+                    <div class="comment-text">
+                        <span class="comment-text">Эй вы там, интриганы, слышал у вас <a href="#">драконы летают</a>. Мои корабли и войско 
+готовы, как до вас доплыть?</span>
+                    </div>
+                    <div class="comment-elements-2">
+                        <a href="#" class="answer">Ответить</a>
+                    </div>
+                </div>
+            </div>          
+        </div>        
+    </div>
+</div>
+</body>
+</html>
