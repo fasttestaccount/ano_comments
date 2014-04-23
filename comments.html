@@ -24,7 +24,7 @@
         font-weight: bold;
         color: #a6b4bb;
     }
-    a.name {
+    span.name,a.name {
         text-decoration: none;
         font-weight: bold;
         font-size: 15px;
@@ -48,6 +48,12 @@
     div.comment-post {
         margin-left: 112px;
     }
+    div.comment-post-elements-1 {
+        position: relative;
+    }
+    div.comment-post-elements-2 {
+        position: relative;   
+    }    
     img.comment-form-userpic {
         float: left;
         width: 100px; 
@@ -56,9 +62,33 @@
     div.comment-textarea {
         margin-top: 5px;
     }
-    img.comment-form-settings {
+    img.comment-form-settings-icon {
         float: right;
+        cursor: pointer;
     }
+    div.comment-form-settings-menu {
+        display: none;
+        position: absolute;
+        z-index: 100;
+        right: -15px;
+        top: 25px;
+        background: #ffffff;
+        border: solid 2px #ccd3d7;  
+        border-radius: 5px;
+        padding: 10px 0px 10px 0px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    }
+    div.comment-form-settings-menu-element {
+        padding: 5px 30px 5px 20px;
+        font-family: Helvetica;
+        color: #a6b4bb;
+        font-size: 13px;        
+    }
+    div.comment-form-settings-menu-element:hover {
+        background-color: #1984bb;
+        color: #ffffff;
+        cursor: pointer;
+    }    
     textarea.comments-textarea {
         width: 100%;
         height: 68px;
@@ -67,11 +97,11 @@
         padding: 10px;
         box-sizing: border-box;
         border-width: 2px;
-        border-radius: 5px;        
+        border-radius: 5px;    
         border-color: #ccd3d7;
         color: #3f4549;
         font-size: 15px;
-        -webkit-transition-property: height!important;    
+        resize: none;
     }
     textarea.comments-textarea::-webkit-input-placeholder {
         font-size: 15px;
@@ -82,15 +112,29 @@
         height: 25px;
         float:right;
         margin-top: 7px;
-        background-color: #e5e6e7;
-        border-width: 2px;
+        background-color: #ccd3d7;
+        border-width: 0px;
         border-color: #ccd3d7;
         border-style: solid;
         border-radius: 5px;
         font-size: 13px;
-        color: #80939d;
+        color: #fff;
         font-weight: bold;
     }
+    button.comment-form-button-active {
+        width: 70px;
+        height: 25px;
+        float:right;
+        margin-top: 7px;
+        background-color: #1984bb;
+        border-width: 0px;
+        border-color: #ccd3d7;
+        border-style: solid;
+        border-radius: 5px;
+        font-size: 13px;
+        color: #fff;
+        font-weight: bold;
+    }    
 /* Comments List */    
     div.comments-list {
         margin-left: 40px;        
@@ -143,16 +187,23 @@
             <img src="./pics/userpic1.png" class="comment-form-userpic">
         </div>
         <div class="comment-post">
-            <div>
-                <a href="#" class="name">Daenerys Targaryen<span class="username">@targaryen</span></a>
-                <img src="./pics/settings.png" width="30" height="20" class="comment-form-settings">
-            </div>
-            <div class="comment-textarea">
-                <textarea class="comments-textarea" name="text" placeholder="Type your comment here..."></textarea>
-            </div>
-            <div>
-                <button Type="submit" class="comment-form-button">Post</button>
-            </div>
+            <form class="comment-post">
+                <div class="comment-post-elements-1">
+                    <a href="#" class="name">Daenerys Targaryen<span class="username">@targaryen</span></a>
+                    <img src="./pics/settings.png" width="30" height="20" class="comment-form-settings-icon">
+                    <div class="comment-form-settings-menu">
+                        <div class="comment-form-settings-menu-element">Профиль</div>
+                        <div class="comment-form-settings-menu-element">Настройки</div>
+                        <div class="comment-form-settings-menu-element">Выход</div>
+                    </div>
+                </div>
+                <div class="comment-textarea">
+                    <textarea class="comments-textarea" name="text" placeholder="Type your comment here..."></textarea>
+                </div>
+                <div class="comment-post-elements-2">
+                    <button Type="button" class="comment-form-button">Post</button>
+                </div>
+            </form>
         </div>
     </div>
     <div class="comments-list">
@@ -219,8 +270,8 @@
                 </div>
                 <div class="comment-elements">
                     <div class="comment-elements-1">
-                        <a href="#" class="name">Anonim</a>
-                        <span class="time">15 min ago</span>
+                        <span href="#" class="name">Anonim</span>
+                        <span class="time">1 min ago</span>
                     </div>
                     <div class="comment-text">
                         <span class="comment-text">Ого! Герои сериалов "Игра престолов" и "Викинги" ожили и рубятся в комментариях!</span>
@@ -233,5 +284,33 @@
         </div>             
     </div>
 </div>
+
+
+
+<script type="text/javascript">
+
+
+        var getform = document.getElementsByClassName('comment-post');
+        var button = getform[0].getElementsByClassName('comment-form-button')[0];
+        var textarea = getform[0].getElementsByClassName('comments-textarea')[0];
+        var settings_icon = getform[0].getElementsByClassName('comment-form-settings-icon')[0];
+        var settings_menu = getform[0].getElementsByClassName('comment-form-settings-menu')[0];        
+
+        textarea.oninput = function() {
+            if (textarea.value != false) {
+                button.className="comment-form-button-active";
+            } else {
+                button.className="comment-form-button";
+            }
+        }
+        settings_icon.onclick = function() {
+            settings_menu.style.display = "inline";
+        }
+        document.onmousedown = function() {
+            settings_menu.style.display = "none";
+        }
+
+</script>
+
 </body>
 </html>

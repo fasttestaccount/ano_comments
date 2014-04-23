@@ -1,0 +1,13 @@
+
+<div id="d1">
+  <ol id="ol1">
+    <li id="li1">1</li>
+    <li id="li2">2</li>
+  </ol>
+</div>
+
+<script type="text/javascript">
+var div = document.getElementById('d1')
+var elems = div.getElementsByTagName('*')
+for(var i=0; i<elems.length; i++) alert(elems[i].id)
+</script>
